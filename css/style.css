@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -11,9 +12,18 @@
 }
 
 .header {
-	padding: 10px;
+	padding: 10px 50px;
 	box-sizing: border-box;
 	text-align: right;
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-title {
+	color: white;
+	font-size: 24px;
 }
 
 .btn-card {
@@ -21,33 +31,45 @@
 	width: 100%;
 	height: 50px;
 	text-align: center;
-	font-family: sans-serif;
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.btn-card:hover,
+.buy-btn:hover {
+	color: white;
+	background-color: grey;
+}
+
+.btn-card:active,
+.buy-btn:active {
+	color: black;
+	background-color: white;
 }
 
 .main {
 	max-width: 100%;
+	padding: 100px 0;
+	box-sizing: border-box;
 }
 
 .products {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 }
 
 .product-item {
-	margin: 0 20px 0 0;
 	max-width: 200px;
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
-	outline: 1px solid black;
-	background-color: rgb(216, 216, 216);
+	outline: 3px solid rgb(6, 219, 166);
+	background-color: rgb(209, 206, 206);
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-}
-
-.product-item:last-child {
-	margin: 0;
 }
 
 .title {
@@ -65,12 +87,14 @@
 .txt {
 	margin: 0 0 20px 0;
 	font-size: 16px;
-	font-family: sans-serif;
 }
 
 .buy-btn {
-	max-width: 100px;
 	width: 100%;
 	height: 30px;
-	font-family: sans-serif;
+	text-align: center;
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	cursor: pointer;
 }

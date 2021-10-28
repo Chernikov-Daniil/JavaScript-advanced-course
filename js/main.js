@@ -1,35 +1,68 @@
 'use strict';
 
-/**
- * Массив товаров
- */
-const products = [
-	{id:1, title: 'Notebook', image: "img/Notebook.png", price: 2000},
-	{id:2, title: 'Mouse', image: "img/Mouse.png", price: 20},
-	{id:3, title: 'Keyboard', image: "img/Keyboard.png", price: 200},
-	{id:4, title: 'Gamepad', image: "img/Gamepad.png", price: 50},
-];
+class ProductList{
+	constructor(container='.products') {
+		this.container = container;
+		this.goods = [];
+		this._fetchProducts();
+		this.render();
+	}
 
-/**
- * Функция для формирования верстки каждого товара
- * @param {object} product - карточка товара
- */
-const renderProducts = (product) => 
-	`<div class="product-item">
-		<img src="${product.image}" alt="photo" class="img" width="100" height="50"></img>
-		<h3 class="title">${product.title}</h3>
-		<p class="txt">Стоимость: ${product.price}$</p>
-		<button class="buy-btn">Купить</button>
-	</div>`;
+	_fetchProducts() {
+		this.goods = [
+			{id:1, title: 'Notebook', image: "img/Notebook.png", price: 2000},
+			{id:2, title: 'Mouse', image: "img/Mouse.png", price: 20},
+			{id:3, title: 'Keyboard', image: "img/Keyboard.png", price: 200},
+			{id:4, title: 'Gamepad', image: "img/Gamepad.png", price: 50},
+		]
+	}
 
-/**
- * Вставка верстки товаров на страницу
- * @param {Array} list - массив товаров
- */
-const renderPage = list => {
-	const productList = list.map(item => renderProducts(item));
-	console.log(productList);
-	document.querySelector(".products").innerHTML = productList.join('');
-};
+	sumProduct() {
+		let sum = 0;
+		this.goods.forEach(product => sum += product.price);
+		return alert(`Сумма товаров равна ${sum}`);
+	}
 
-renderPage(products);
+	render() {
+		const block = document.querySelector(this.container);
+		for(let product of this.goods){
+			const item = new ProductItem(product);
+			block.insertAdjacentHTML('beforeend', item.render());
+		}
+	}
+}
+
+class ProductItem{
+	constructor(product){
+		this.title = product.title;
+		this.price = product.price;
+		this.id = product.id;
+		this.image = product.image;
+	}
+
+	render(){
+		return	`<div class="product-item">
+					<img src="${this.image}" alt="photo" class="img" width="100" height="50"></img>
+					<h3 class="title">${this.title}</h3>
+					<p class="txt">Стоимость: ${this.price}$</p>
+					<button class="buy-btn">Купить</button>
+				</div>`;
+	}
+}
+
+let list = new ProductList();
+list.sumProduct();
+
+class Basket{
+	addGoods(){}
+
+	removeGoods(){}
+
+	changeGoods(){}
+
+	render(){}
+}
+
+class ElBasket{
+	render();
+}
