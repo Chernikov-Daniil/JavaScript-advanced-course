@@ -1,0 +1,9 @@
+<script>
+	'use strict';
+	fetch("https://www.cbr-xml-daily.ru/daily_json.js") //функция, которая елает запрос к серверу и возвращает Promise
+	.then(text => text.json()) //text - исходник ресурса; json() - этот метод, который преобразует в объект js и венет Promise
+	.then(data => {        // data -это объект, полученный из json строки
+		console.log(data.Valute.EUR);
+		console.log(data.Valute.EUR.Value);
+	})
+</script>

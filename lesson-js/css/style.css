@@ -35,6 +35,7 @@
 	border-radius: 10px;
 	background-color: white;
 	cursor: pointer;
+	position: relative;
 }
 
 .btn-card:hover,
@@ -47,6 +48,26 @@
 .buy-btn:active {
 	color: black;
 	background-color: white;
+}
+
+.basket {
+	display: none;
+	width: 600px;
+	height: 500px;
+	border: 1px solid rgb(122, 120, 120);
+	background-color: white;
+	position:absolute;
+	top: 65px;
+	right: 0;
+}
+
+.basket::before {
+	content: "";
+	position: absolute;
+	border: 15px solid transparent; 
+	border-bottom: 15px solid grey;
+	top: -31px;
+	right: 30px;
 }
 
 .main {
@@ -66,7 +87,6 @@
 	padding: 10px;
 	box-sizing: border-box;
 	outline: 3px solid rgb(6, 219, 166);
-	background-color: rgb(209, 206, 206);
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -96,5 +116,6 @@
 	border: none;
 	border-radius: 10px;
 	background-color: white;
+	border: 1px solid #000;
 	cursor: pointer;
 }
