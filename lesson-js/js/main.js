@@ -9,7 +9,8 @@ class ProductList {
 		this._getProducts()
 			.then(data => {
 				this.goods = data;
-				this.render()
+				this.render();
+				this.sumProduct();
 			});
 	}
 
@@ -19,13 +20,6 @@ class ProductList {
 			.catch(error => {
 				console.log(error);
 			});
-
-		// this.goods = [
-		// 	{ id: 1, title: 'Notebook', image: "img/Notebook.png", price: 2000 },
-		// 	{ id: 2, title: 'Mouse', image: "img/Mouse.png", price: 20 },
-		// 	{ id: 3, title: 'Keyboard', image: "img/Keyboard.png", price: 200 },
-		// 	{ id: 4, title: 'Gamepad', image: "img/Gamepad.png", price: 50 },
-		// ]
 	}
 
 	sumProduct() {
@@ -62,42 +56,44 @@ class ProductItem {
 }
 
 let list = new ProductList();
-list.sumProduct();
 
 class Basket {
 	constructor(container = '.basket') {
 		this.container = container;
 		this.goods = [];
-		this.addGoods()
+		this._clickBasket();
+		this._getBasket()
 			.then(data => {
 				this.goods = data.contents;
 				this.render()
 			});
 	}
 
-	addGoods() {
+	_getBasket() {
 		return fetch(`${API}/getBasket.json`)
-			.then(text => text.json())
+			.then(data => data.json())
 			.catch(error => {
 				console.log(error);
 			});
 	}
 
-	// removeGoods() {}
-
-	// changeGoods() {}
-
 	render() {
-		const block = document.querySelector(this.container);
+		const blockBasket = document.querySelector(this.container);
 		for (let product of this.goods) {
-			const item = new ProductItem(product);
-			block.insertAdjacentHTML('beforeend', item.render());
+			const item = new ElBasket(product);
+			blockBasket.insertAdjacentHTML('beforeend', item.render());
 		}
+	}
+
+	_clickBasket() {
+		document.querySelector('.btn-card').addEventListener('click', element => {
+			document.querySelector('.basket').classList.toggle('invisible');
+		})
 	}
 }
 
 class ElBasket {
-	constructor(product, image = "https://via.placeholder.com/50") {
+	constructor(product, image = "https://via.placeholder.com/100x150") {
 		this.title = product.product_name;
 		this.price = product.price;
 		this.id = product.id_product;
@@ -106,17 +102,16 @@ class ElBasket {
 	}
 
 	render() {
-		return `<div class="product-item">
-					<img src="${this.image}" alt="photo" class="img" width="150" height="150"></img>
-					<h3 class="title">${this.title}</h3>
-					<p class="txt">Стоимость: ${this.price}$</p>
-					<p class="quantity">Кол-во: ${this.quantity}</p>
-					<button class="buy-btn">+</button>
+		return `<div class="basket-product-item">
+					<img src="${this.image}" alt="photo" class="basket-img"></img>
+					<div class='wrp-desc'>
+						<h3 class="basket-title">${this.title}</h3>
+						<p class="basket-txt">Стоимость: ${this.price}$</p>
+						<p class="basket-quantity">Кол-во: ${this.quantity}</p>
+					</div>
+					<button class="basket-buy-btn">+</button>
 				</div>`;
 	};
 }
 
-document.querySelector('.btn-card').addEventListener('click', element => {
-	document.querySelector('.basket').style.display = "block";
-	let Basket = new Basket();
-})
+let BasketList = new Basket();

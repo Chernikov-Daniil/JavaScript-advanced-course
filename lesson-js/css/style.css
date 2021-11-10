@@ -26,6 +26,11 @@
 	font-size: 24px;
 }
 
+.wrp {
+	width: 200px;
+	position: relative;
+}
+
 .btn-card {
 	max-width: 150px;
 	width: 100%;
@@ -35,7 +40,6 @@
 	border-radius: 10px;
 	background-color: white;
 	cursor: pointer;
-	position: relative;
 }
 
 .btn-card:hover,
@@ -52,13 +56,15 @@
 
 .basket {
 	display: none;
-	width: 600px;
-	height: 500px;
-	border: 1px solid rgb(122, 120, 120);
+	width: 300px;
+	border: 3px solid rgb(122, 120, 120);
 	background-color: white;
 	position:absolute;
 	top: 65px;
 	right: 0;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: left;
 }
 
 .basket::before {
@@ -68,6 +74,34 @@
 	border-bottom: 15px solid grey;
 	top: -31px;
 	right: 30px;
+}
+
+.basket-product-item {
+	margin: 0 0 20px 0;
+	display: flex;
+}
+
+.basket-product-item:last-child {
+	margin: 0;
+}
+
+.basket-buy-btn {
+	width: 50px;
+	height: 50px;
+	font-size: 24px;
+}
+
+.wrp-desc {
+	width: 100px;
+	margin-right: 20px;
+}
+
+.basket-img {
+	margin-right: 10px;
+}
+
+.invisible {
+	display: block;
 }
 
 .main {
