@@ -1,0 +1,184 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+	max-width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+
+.header {
+	padding: 10px 50px;
+	box-sizing: border-box;
+	text-align: right;
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-title {
+	color: white;
+	font-size: 24px;
+}
+
+.search-form{
+    position: relative;
+    margin-right: 50px;
+    display: inline-block;
+}
+
+.search-field:focus{
+    outline: none;
+}
+.search-field {
+    box-sizing: border-box;
+    width: 200px;
+    color: #fafafa;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fafafa;
+}
+
+.btn-search {
+    background-color: transparent;
+    border: none;
+    color: #fafafa;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+	cursor: pointer;
+}
+
+.wrp {
+	width: 500px;
+	position: relative;
+}
+
+.btn-card {
+	max-width: 150px;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.btn-card:hover,
+.buy-btn:hover {
+	color: white;
+	background-color: grey;
+}
+
+.btn-card:active,
+.buy-btn:active {
+	color: black;
+	background-color: white;
+}
+
+.basket {
+	width: 300px;
+	border: 3px solid rgb(122, 120, 120);
+	background-color: white;
+	position:absolute;
+	top: 65px;
+	right: 0;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+.basket::before {
+	content: "";
+	position: absolute;
+	border: 15px solid transparent; 
+	border-bottom: 15px solid grey;
+	top: -31px;
+	right: 30px;
+}
+
+.basket-product-item {
+	margin: 0 0 20px 0;
+	display: flex;
+}
+
+.basket-product-item:last-child {
+	margin: 0;
+}
+
+.basket-buy-btn {
+	width: 50px;
+	height: 50px;
+	font-size: 24px;
+}
+
+.wrp-desc {
+	width: 100px;
+	margin-right: 20px;
+}
+
+.basket-img {
+	margin-right: 10px;
+}
+
+.invisible {
+	display: block;
+}
+
+.main {
+	max-width: 100%;
+	padding: 100px 0;
+	box-sizing: border-box;
+}
+
+.products {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.product-item {
+	max-width: 200px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	outline: 3px solid rgb(6, 219, 166);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.title {
+	font-size: 24px;
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+
+.img {
+	width: 100%;
+	height: 100px;
+	margin: 0 0 50px 0;
+}
+
+.txt {
+	margin: 0 0 20px 0;
+	font-size: 16px;
+}
+
+.buy-btn {
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid #000;
+	cursor: pointer;
+}
