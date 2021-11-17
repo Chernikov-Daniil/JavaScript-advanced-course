@@ -27,16 +27,19 @@
 
 	<main class="main">
 
+		<error :error-msg="error"></error>
+
 		<products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
 		
 	</main>
-	
+
 </div>
 	<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 	<script src="js/Vue.js"></script>
 	<script src="js/searchСomponent.js"></script>
 	<script src="js/basketСomponent.js"></script>
 	<script src="js/productComponent.js"></script>
+	<script src="js/error.Component.js"></script>
 	<script src="js/main.js"></script>
 </body>
 
