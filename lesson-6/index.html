@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Интернет магазин</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div id="app" class="container">
+
+	<header class="header">
+		<span class="header-title">E-shop</span>
+		<div class="wrp">
+
+			<search></search>
+
+			<button class="btn-card" type="button" @click="showCart=!showCart">Корзина</button>
+
+			<basket :cart-items="basket" :img="imgBasket" :visibility="showCart"></basket>
+
+		</div>
+	</header>
+
+	<main class="main">
+
+		<error :error-msg="error"></error>
+
+		<products :products="filtered" :img="imgCatalog" @add-product="addProduct"></products>
+		
+	</main>
+
+</div>
+	<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+	<script src="js/Vue.js"></script>
+	<script src="js/searchСomponent.js"></script>
+	<script src="js/basketСomponent.js"></script>
+	<script src="js/productComponent.js"></script>
+	<script src="js/error.Component.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
